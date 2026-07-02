@@ -1,4 +1,7 @@
-FROM node:18.12.0-alpine3.16
+FROM node:22-alpine
+ 
+# Apply upstream security patches to OS packages and runtime components
+RUN apk upgrade --no-cache && npm install -g npm@latest
  
 WORKDIR /app
 COPY package*.json ./
